@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->string('startDate');
             $table->string('endDate');
             $table->string('description');
+            $table->string('create_by');
             $table->timestamps();
         });
     }
