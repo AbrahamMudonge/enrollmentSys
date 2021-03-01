@@ -14,5 +14,6 @@ class Courses extends Model
         'startDate',
         'endDate',
         'description',
+        'create_by'
     ];
 }
