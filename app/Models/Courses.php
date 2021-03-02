@@ -16,4 +16,9 @@ class Courses extends Model
         'description',
         'create_by',
     ];
+
+    public function course_instructor()
+    {
+        return $this->hasOne(CourseInstructor::class);
+    }
 }
