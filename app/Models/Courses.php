@@ -21,4 +21,10 @@ class Courses extends Model
     {
         return $this->hasOne(CourseInstructor::class);
     }
+
+   
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
 }
