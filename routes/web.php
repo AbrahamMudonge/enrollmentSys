@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,13 @@ function(){
     Route::get('/instructors',[CourseInstructorController::class,'index']);
     Route::post('/submit-instructor',[CourseInstructorController::class,'store']);
 
-    
+    // unit routes
+    Route::get('/unit', [UnitController::class, 'index']);
+    Route::post('/create-unit',[UnitController::class,'store']);
+    Route::get('/unit-edit/{id}', [UnitController::class, 'edit']);
+    Route::put('/unit-update/{id}', [UnitController::class, 'update']);
 
+    // lesson routes
+    Route::get('/lesson', [LessonController::class, 'index']);
+    Route::post('/create-lesson',[LessonController::class, 'store'] );
 }   );
