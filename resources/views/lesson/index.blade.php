@@ -9,7 +9,27 @@
       </button>
     </div>
     <div class="card-body">
-      
+      <table class="table">
+          <tr>
+            <th>ID</th>
+            <th>LESSON NAME</th>
+            <th>COURSE</th>
+            <th>CREATED BY</th>
+            <th>ACTION</th>
+          </tr>
+
+          @foreach ($lessons as $lesson)
+              <tr>
+                <td>{{ $lesson->id }}</td>
+                <td>{{ $lesson->lesson_name }}</td>
+                <td>{{ $lesson->course_id }}</td>
+                <td>{{ $lesson->created_by }}</td>
+                <td>
+                  <a href="/edit-lesson/{{ $lesson->id }}" class="btn btn-success">Edit</a>
+                </td>
+              </tr>
+          @endforeach
+      </table>
     </div>
     <div class="card-footer">
      ZALEGO ACADEMY

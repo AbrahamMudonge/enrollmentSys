@@ -45,4 +45,6 @@ function(){
     // lesson routes
     Route::get('/lesson', [LessonController::class, 'index']);
     Route::post('/create-lesson',[LessonController::class, 'store'] );
+    Route::get('/edit-lesson/{id}', [LessonController::class, 'edit']);
+    Route::put('/update-lesson/{id}', [LessonController::class, 'update']);
 }   );
