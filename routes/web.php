@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +30,10 @@ function(){
     Route::post('/submit-course',[CourseController::class,'store']);
     Route::put('/course-update/{id}',[CourseController::class,'update']);
     Route::delete('/course-delete/{id}',[CourseController::class,'destroy']);
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    //routes for lesson
+    Route::get('lesson',[LessonController::class, 'index']);
+    Route::post('/submit-lesson',[LessonController::class,'store']);
 
     // routes for instructor
     Route::get('/instructors',[CourseInstructorController::class,'index']);
