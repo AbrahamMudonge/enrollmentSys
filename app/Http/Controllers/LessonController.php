@@ -11,7 +11,8 @@ class LessonController extends Controller
     public function index()
     {
         $courses = Courses::latest()->get();
-        return view('lesson.index', compact('courses'));
+        $lessons = Lesson::all();
+        return view('lesson.index', compact('courses', 'lessons'));
     }
 
     public function create()
@@ -36,5 +37,27 @@ class LessonController extends Controller
         return redirect()->back();
 
 
+    }
+
+    public function edit($id)
+    {
+        $clickedLesson = Lesson::findOrFail($id);
+        $courses = Courses::latest()->get();
+        return view('lesson.edit', compact('clickedLesson', 'courses'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' =>'required',
+            'course_id'=>'required'
+        ]);
+
+        $lesson = Lesson::findOrFail($id); //Find the exact lesson
+        $lesson->lesson_name = $request->name;
+        $lesson->course_id = $request->course_id;
+        $lesson->save();
+
+        return redirect('/lesson');
     }
 }
