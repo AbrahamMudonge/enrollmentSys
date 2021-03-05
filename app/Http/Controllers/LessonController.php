@@ -10,8 +10,9 @@ class LessonController extends Controller
 {
     public function index()
     {
+        $lessons = Lesson::latest()->get();
         $courses = Courses::latest()->get();
-        return view('lesson.index', compact('courses'));
+        return view('lesson.index', compact('courses', 'lessons'));
     }
 
     public function create()

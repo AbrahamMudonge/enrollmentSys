@@ -9,7 +9,27 @@
       </button>
     </div>
     <div class="card-body">
-      
+          <table class="table">
+          <tr>
+            <th>Lesson Name</th>
+            <th>course </th>
+            <th>created by </th>
+            <th>User Email</th>
+            <th>created at</th> 
+          </tr>
+            @foreach($lessons as $lesson)
+                <tr>
+                  <td>{{ $lesson->lesson_name }}</td>
+                  <td>{{ $lesson->courses->courseName }}</td>
+                  <td>{{ $lesson->users->name }}</td>
+                  <td>{{ $lesson->users->email }}</td>
+                  <td>
+                    {{ date('dS-F-Y', strtotime($lesson->created_at)) }}
+                    <span class="badge badge-danger">{{ $lesson->created_->diffForhumans() }}</span>
+                  </td>
+                </tr>
+            @endforeach
+          </table>
     </div>
     <div class="card-footer">
      ZALEGO ACADEMY
