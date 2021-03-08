@@ -39,7 +39,7 @@
                                 <td>{{ date('dS - F - Y', strtotime($lesson->created_at)) }}</td>
                                 <td>{{ $lesson->courses->create_by}}</td>
                                 <td>
-                                    <a href="">edit</a>
+                                    <a href="/edit-lesson/{{$lesson->id}}" class="btn btn-success">edit</a>
                                 </td>
                             </tr>
                         @endforeach

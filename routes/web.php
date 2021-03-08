@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -34,10 +35,15 @@ function(){
     //routes for lesson
     Route::get('lesson',[LessonController::class, 'index']);
     Route::post('/submit-lesson',[LessonController::class,'store']);
+    Route::get('/edit-lesson/{id}',[LessonController::class,'edit']);
+    Route::put('/update-lesson/{id}',[LessonController::class,'update']);
 
     // routes for instructor
     Route::get('/instructors',[CourseInstructorController::class,'index']);
     Route::post('/submit-instructor',[CourseInstructorController::class,'store']);
+
+    //resource controller route
+    Route::resource('departments', DepartmentsController::class);
 
     
 

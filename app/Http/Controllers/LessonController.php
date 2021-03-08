@@ -25,5 +25,23 @@ class LessonController extends Controller
         Lesson::create( $request->all() );
         return back()->with('message', 'Lesson added Successfuly');
     }
-    
+    public function edit($id)
+    {
+        $clickedLesson=Lesson::findOrFail($id);
+        $fetchAllCourses=Courses::latest()->get();
+        return view('lesson.edit',compact('clickedLesson','fetchAllCourses'));
+    }
+    public function update(Request $request,$id)
+    {
+        $this->validate($request, [
+            'lesson_name'=>'required',
+            'course_id'=>'required'
+        ]);
+        $lesson =Lesson::findOrFail($id);//find the exact lesson
+        $lesson->lesson_name=$request->lesson_name;
+        $lesson->course_id=$request->course_id;
+        $lesson->save();
+
+        return redirect('lesson')->with('message','lesson updated successfully');
+    }
 }
