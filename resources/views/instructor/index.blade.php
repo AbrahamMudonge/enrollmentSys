@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($displayAllInstructorAndCourses as $instructor)
+                        @foreach ($displayAllInstructoreAndCourses as $instructor)
                             <tr>
                                 <td>{{ $instructor->instructor_name}}</td>
                                 <td>{{ $instructor->courses->courseName}}</td>
