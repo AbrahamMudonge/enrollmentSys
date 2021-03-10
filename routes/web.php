@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -42,9 +43,10 @@ function(){
     Route::get('/instructors',[CourseInstructorController::class,'index']);
     Route::post('/submit-instructor',[CourseInstructorController::class,'store']);
 
-    //resource controller route
+    //resource controller route departments
     Route::resource('departments', DepartmentsController::class);
-
+        //resource controller route departments
+        Route::resource('students', StudentsController::class);
     
 
 }   );
