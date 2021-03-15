@@ -33,7 +33,7 @@
                 <div class="col-lg-6"> 
                    <div class="form-group">
                        <label for="startDate">Start Date :</label>
-                        <input type="text" class="form-control @error('startDate') is-invalid @enderror" name="startDate" value="{{$courses->startDate}}" >
+                        <input type="date" class="form-control @error('startDate') is-invalid @enderror" name="startDate" value="{{$courses->startDate}}" >
                         @error('startDate')
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror
@@ -42,7 +42,7 @@
                 <div class="col-lg-6"> 
                    <div class="form-group">
                        <label for="endDate">End Date :</label>
-                        <input type="text" class="form-control @error('endDate') is-invalid @enderror" name="endDate" value="{{$courses->endDate}}" >
+                        <input type="date" class="form-control @error('endDate') is-invalid @enderror" name="endDate" value="{{$courses->endDate}}" >
                         @error('endDate')
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror

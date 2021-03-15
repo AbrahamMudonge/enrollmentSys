@@ -6,6 +6,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ function(){
     Route::delete('/course-delete/{id}',[CourseController::class,'destroy']);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    Route::get('/view-student/{id}', [CourseController::class,'viewStudent']);
+
     // routes for instructor
     Route::get('/instructors',[CourseInstructorController::class,'index']);
     Route::post('/submit-instructor',[CourseInstructorController::class,'store']);
@@ -47,4 +50,7 @@ function(){
     Route::post('/create-lesson',[LessonController::class, 'store'] );
     Route::get('/edit-lesson/{id}', [LessonController::class, 'edit']);
     Route::put('/update-lesson/{id}', [LessonController::class, 'update']);
+
+    // Studnet
+    Route::resource('student', StudentController::class);
 }   );
