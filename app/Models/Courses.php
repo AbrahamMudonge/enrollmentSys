@@ -15,6 +15,7 @@ class Courses extends Model
         'endDate',
         'description',
         'create_by',
+        'featured_image',
     ];
 
     public function course_instructor()

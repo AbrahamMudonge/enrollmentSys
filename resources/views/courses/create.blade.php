@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="/submit-course" method="post" autocomplete="off">
+        <form action="/submit-course" method="post" autocomplete="off" enctype="multipart/form-data">
         @csrf
             <div class="row">
                <div class="col-lg-6"> 
@@ -56,6 +56,15 @@
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror
                     </div>
+                    <div class="col-lg-6"> 
+                        <div class="form-group">
+                            <label for="featured_image">Featured Image:</label>
+                             <input type="file" class="form-control @error('featured_image') is-invalid @enderror" name="featured_image" value="{{old('featured_image')}}"> 
+                             @error('courseName')
+                                 <span class="invalid-feedback">{{$message}}</span>
+                             @enderror
+                         </div>
+                     </div>
                     <button type="submit" class="btn btn-success btn-sm">Save changes</button>
                 </div>
             </div>

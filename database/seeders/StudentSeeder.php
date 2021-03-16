@@ -18,8 +18,8 @@ class StudentSeeder extends Seeder
         DB::table('students')->insert([
             'studentName'=>'Eric',
             'phoneNumber'=>'0780989898',
-            'course_id'=>3,
-            'department_id'=>5,
+            'course_id'=>1,
+            'department_id'=>1,
             'created_by'=>'Abraham',
             
         ]);

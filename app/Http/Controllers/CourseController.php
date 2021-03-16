@@ -29,11 +29,29 @@ class CourseController extends Controller
             'startDate'=>['required'],
             'endDate'=>['required'],
             'description'=>['required'],
+            'featured_image'=>['required','mimes:jpg,jpeg,png','max:5048'],
                         
         ]);
+        //getting the image
+            $imageName=$request->courseName . '-'. time() . '.' .$request->featured_image->extension();
+                        //dd($imageName);
+            $request->featured_image->move(public_path('images/courses'),$imageName);
+
         //grabbing loggedin user
-        $request['create_by']=Auth::user()->name;
-        Courses::create($request->all());
+        // $request['create_by']=Auth::user()->name;
+        // $request['featured_image']=$imageName;
+        // Courses::create($request->all());
+        $course=new Courses();
+        $course->courseName=$request->courseName;
+        $course->price=$request->price;
+        $course->startDate=$request->startDate;
+        $course->endDate=$request->endDate;
+        $course->description=$request->description;
+        $course->create_by=Auth::user()->name;
+        $course->featured_image=$imageName;
+        $course->save();
+        
+
         //return back();
         return back()->with('message','Courses Registered Successfully');
         // dd($request->all());

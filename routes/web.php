@@ -9,9 +9,6 @@ use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
-use App\Http\Controllers\CourseInstructorController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\LessonController;
 
 
 /*

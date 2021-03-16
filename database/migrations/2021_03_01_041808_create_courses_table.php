@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->string('endDate');
             $table->string('description');
             $table->string('create_by');
+            $table->string('featured_image')->default('default.png');
             $table->timestamps();
         });
     }

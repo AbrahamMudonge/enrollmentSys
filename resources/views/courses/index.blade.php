@@ -39,6 +39,8 @@
                     <tbody>
                       @forelse ($showCourses as $courses)
                         <tr>
+                            <td><img src="{{ asset('images/courses/' . $courses->featured_image) }}" class="image-responsive img-thumbnail" alt=""></td>
+                            
                           <td>{{$courses->courseName}}</td>
                           <td>{{$courses->price}}</td>
                           <td>{{$courses->startDate}}</td>
