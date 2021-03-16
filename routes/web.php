@@ -8,6 +8,11 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UnitController;
+use App\Http\Controllers\CourseInstructorController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LessonController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +55,16 @@ function(){
         Route::resource('students', StudentsController::class);
     
 
+    // unit routes
+    Route::get('/unit', [UnitController::class, 'index']);
+    Route::post('/create-unit',[UnitController::class,'store']);
+    Route::get('/unit-edit/{id}', [UnitController::class, 'edit']);
+    Route::put('/unit-update/{id}', [UnitController::class, 'update']);
+
+
+    // lesson routes
+    Route::get('/lesson', [LessonController::class, 'index']);
+    Route::post('/create-lesson',[LessonController::class, 'store'] );
+    Route::get('/edit-lesson/{id}', [LessonController::class, 'edit']);
+    Route::put('/update-lesson/{id}', [LessonController::class, 'update']);
 }   );
