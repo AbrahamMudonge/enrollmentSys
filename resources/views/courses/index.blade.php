@@ -51,8 +51,10 @@
                           <td>
                               <a href='#'data-toggle='modal' data-target='#viewCourse-{{$courses->id}}' class='btn btn-primary btn-sm'>view</a>
                               <a href='#' data-toggle='modal' data-target='#editCourse-{{$courses->id}}'  class='btn btn-success btn-sm'>edit</a>
+
                               @include('courses.edit')
                               <a href='#'class='btn btn-danger btn-sm' onclick="confirm('you are about to delete {{$courses->courseName}}?')  ? document.getElementById('deleted-course-{{$courses->id}}').submit(): '' ">delete</a>
+                              <a href='/view-students/{{ $courses->id }}'  class='btn btn-warning btn-sm'>View students</a>
                               <form action="/course-delete/{{$courses->id}}" method="post" id="deleted-course-{{$courses->id}}">
                                     @csrf
                                     @method('delete')

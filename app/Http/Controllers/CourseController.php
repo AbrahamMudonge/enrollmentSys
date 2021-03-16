@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Courses;
+use App\Models\Students;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -60,5 +61,11 @@ class CourseController extends Controller
         $findCourses=Courses::find($id);
         $findCourses->delete();
         return back()->with('message','Courses Deleted Successfully');
+    }
+    public function viewStudents($id)
+    {
+        $course=Courses::findOrFail($id);
+        $studentTakingCourse=Students::where('course_id', '=', $id)->get();
+       return view('courses.view-student',compact('studentTakingCourse','course'));
     }
 }

@@ -54,7 +54,7 @@ class StudentsController extends Controller
                         
         ]);
         //grabbing loggedin user
-        $request['created_by']=Auth::user()->name;
+        $request['created_by']=Auth::user()->id;
         Students::create($request->all());
         //return back();
         return back()->with('message','Student Registered Successfully');

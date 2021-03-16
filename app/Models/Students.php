@@ -23,5 +23,10 @@ class Students extends Model
     {
         return $this->belongsTo(Departments::class,'department_id');
     }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo('App\Models\User', 'created_by', 'id');
+    // }
 }
 

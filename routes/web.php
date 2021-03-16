@@ -32,6 +32,7 @@ function(){
     Route::post('/submit-course',[CourseController::class,'store']);
     Route::put('/course-update/{id}',[CourseController::class,'update']);
     Route::delete('/course-delete/{id}',[CourseController::class,'destroy']);
+    Route::get('/view-students/{id}',[CourseController::class,'viewStudents']);
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     //routes for lesson
     Route::get('lesson',[LessonController::class, 'index']);

@@ -27,6 +27,7 @@
                         <tr>
                           <th>Department Name</th>
                           <th>Description</th>
+                          <th>Actions</th>
                           
                           
                         </tr>
@@ -50,7 +51,7 @@
                               </form>
                           </td>
                           
-                        </tr>
+                        </tr> 
                         
                         
                         @include('departments.view')
