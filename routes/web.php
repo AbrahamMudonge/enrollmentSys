@@ -9,7 +9,8 @@ use App\Http\Controllers\CourseInstructorController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
-
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ function(){
     Route::resource('departments', DepartmentsController::class);
         //resource controller route departments
         Route::resource('students', StudentsController::class);
+        //resource controller route user
+        Route::resource('users', UserController::class);
     
 
     // unit routes
@@ -57,6 +60,9 @@ function(){
     Route::post('/create-unit',[UnitController::class,'store']);
     Route::get('/unit-edit/{id}', [UnitController::class, 'edit']);
     Route::put('/unit-update/{id}', [UnitController::class, 'update']);
+    
+    
+
 
 
     // lesson routes

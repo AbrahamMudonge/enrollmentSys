@@ -17,21 +17,21 @@ class LessonController extends Controller
         $fetchAllCourses = Courses::all();
         return view('lesson.index', compact('fetchAllCourses','displayAllLesson'));
     }
-    public function store(Request $request)
-    {
-        // dd($request->all());
+    // public function store(Request $request)
+    // {
+    //     // dd($request->all());
         
-        // $request['created_by']=Auth::user()->name;
+    //     // $request['created_by']=Auth::user()->name;
 
-        Lesson::create( $request->all() );
-        return back()->with('message', 'Lesson added Successfuly');
-    }
-    public function edit($id)
-    {
-        $clickedLesson=Lesson::findOrFail($id);
-        $fetchAllCourses=Courses::latest()->get();
-        return view('lesson.edit',compact('clickedLesson','fetchAllCourses'));
-    }
+    //     Lesson::create( $request->all() );
+    //     return back()->with('message', 'Lesson added Successfuly');
+    // }
+    // public function edit($id)
+    // {
+    //     $clickedLesson=Lesson::findOrFail($id);
+    //     $fetchAllCourses=Courses::latest()->get();
+    //     return view('lesson.edit',compact('clickedLesson','fetchAllCourses'));
+    // }
     public function update(Request $request,$id)
     {
         $this->validate($request, [
@@ -81,19 +81,19 @@ class LessonController extends Controller
         return view('lesson.edit', compact('clickedLesson', 'courses'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'name' =>'required',
-            'course_id'=>'required'
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     $this->validate($request, [
+    //         'name' =>'required',
+    //         'course_id'=>'required'
+    //     ]);
 
-        $lesson = Lesson::findOrFail($id); //Find the exact lesson
-        $lesson->lesson_name = $request->name;
-        $lesson->course_id = $request->course_id;
-        $lesson->save();
+    //     $lesson = Lesson::findOrFail($id); //Find the exact lesson
+    //     $lesson->lesson_name = $request->name;
+    //     $lesson->course_id = $request->course_id;
+    //     $lesson->save();
 
-        return redirect('/lesson');
+    //     return redirect('/lesson');
 
-    }
+    // }
 }
